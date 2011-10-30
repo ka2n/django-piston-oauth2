@@ -70,6 +70,7 @@ class ModelStore(Store):
         nonce, created = Nonce.objects.get_or_create(
             consumer_key=oauth_request['oauth_consumer_key'],
             token_key=oauth_request.get('oauth_token', ''),
+            timestamp=oauth_request['oauth_timestamp'],
             key=nonce
         )
         return created
